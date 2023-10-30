@@ -14,14 +14,13 @@ ENV PYTHONUNBUFFERD 1
 
 WORKDIR /usr/src/app
 COPY requirements.txt ./
-COPY runserver.sh ./
-
 RUN pip install -r requirements.txt
 
+COPY runserver.sh ./
 # Step 2: Copy Django Code
 # ----------------------------------------
-COPY . /usr/src/app/.
+COPY . .
 
 EXPOSE 8000
 
-CMD ["/usr/src/app/runserver.sh"]
+ENTRYPOINT ["/bin/bash", "/usr/src/app/runserver.sh"]

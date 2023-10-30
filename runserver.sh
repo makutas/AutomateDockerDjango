@@ -2,8 +2,8 @@
 
 echo "Applying migrations..."
 cd /usr/src/app
-export PYTHONPATH=/usr/src/app;$PYTHONPATH
-
+#export PYTHONPATH=/usr/src/app;$PYTHONPATH
+python manage.py makemigrations --noinput
 python manage.py migrate --noinput
 echo "Creating superusers..."
 python manage.py initadmin
